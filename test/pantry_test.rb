@@ -1,4 +1,5 @@
 require './lib/pantry'
+require './lib/recipe'
 require 'minitest/autorun'
 require 'minitest/pride'
 
@@ -33,5 +34,11 @@ class PantryTest < Minitest::Test
 
     pantry.stock[:amount] = 10
     assert_equal 30, pantry.restock("Cheese", 20)
+  end
+
+  def test_it_can_create_new_recipe
+    r = Recipe.new("Cheese Pizza")
+
+    assert_instance_of Recipe, r
   end
 end
