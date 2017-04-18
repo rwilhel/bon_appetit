@@ -13,6 +13,7 @@ class Pantry
   end
 
   def restock(food, new_amount)
+    @stock[:amount] ||= 0
     @stock[:amount] + new_amount
   end
 end
