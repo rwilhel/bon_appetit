@@ -17,4 +17,8 @@ class Pantry
     @stock[:amount] ||= 0
     @stock[:amount] + new_amount
   end
+
+  def add_to_shopping_list(r)
+    Recipe.new(@name)
+  end
 end

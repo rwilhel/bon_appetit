@@ -41,4 +41,21 @@ class PantryTest < Minitest::Test
 
     assert_instance_of Recipe, r
   end
+
+  def test_it_can_add_ingredients_to_recipe
+    r = Recipe.new("Cheese Pizza")
+
+    r.add_ingredient("Cheese", 20)
+    r.add_ingredient("Flour", 20)
+    assert_equal ["Cheese", "Flour"], r.ingredient_types
+    assert_equal [20, 20], r.ingredients.values
+  end
+
+  def test_it_can_add_recipe_to_shopping_list
+    r = Recipe.new("Cheese Pizza")
+    pantry = Pantry.new
+    @name = "Cheese Pizza"
+    @ingredients = {}
+    assert_equal r, pantry.add_to_shopping_list(r)
+  end
 end
