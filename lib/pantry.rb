@@ -19,6 +19,10 @@ class Pantry
   end
 
   def add_to_shopping_list(r)
-    Recipe.new(@name)
+    r
+  end
+
+  def shopping_list
+    @ingredients
   end
 end
