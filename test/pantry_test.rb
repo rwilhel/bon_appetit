@@ -10,7 +10,7 @@ class PantryTest < Minitest::Test
     assert_instance_of Pantry, pantry
   end
 
-  def test_it_has_stock
+  def test_it_has_stock_hash
     pantry = Pantry.new
 
     assert pantry.stock
@@ -26,13 +26,12 @@ class PantryTest < Minitest::Test
     pantry = Pantry.new
 
     assert_equal 10, pantry.restock("Cheese", 10)
-    # assert_equal "Cheese", pantry.stock_check("Cheese")
   end
 
-  def test_it_can_restock_and_add_to_amount
+  def test_it_can_restock_and_add_to_existing_amount
     pantry = Pantry.new
 
+    pantry.stock[:amount] = 10
     assert_equal 30, pantry.restock("Cheese", 20)
-    assert_equal "Cheese", pantry.stock_check("Cheese")
   end
 end

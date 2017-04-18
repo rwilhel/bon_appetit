@@ -4,18 +4,15 @@ class Pantry
   attr_reader :stock
 
   def initialize
-    @stock = Hash.new(args)
+    @stock = {}
   end
 
   def stock_check(food)
-    @stock[:food] = food
-    @stock[:amount] = 0
+    stock[:food] = food
+    @stock[:amount] ||= 0
   end
 
-  def restock(food, amount)
-    @stock[:food]
-    binding.pry
-    @stock.values
-
+  def restock(food, new_amount)
+    @stock[:amount] + new_amount
   end
 end
