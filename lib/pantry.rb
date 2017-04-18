@@ -23,6 +23,6 @@ class Pantry
   end
 
   def shopping_list
-    @ingredients
+    @ingredients = [:ingredient_name => amount]
   end
 end
